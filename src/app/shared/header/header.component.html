@@ -8,8 +8,10 @@
   <ul class="app-bar-list">
     <li>
       <button data-test="app-button" class="app-bar-button" type="button" (click)="toggleTheme()" mat-button>
-        <mat-icon *ngIf="isDarkTheme" class="mat-icon-15" fontSet="material-icons-outlined">nightlight_round</mat-icon>
-        <mat-icon *ngIf="!isDarkTheme" class="mat-icon-15" fontSet="material-icons-outlined">nightlight</mat-icon>
+        <mat-icon data-test="moon-icon" *ngIf="isDarkTheme" class="mat-icon-15" fontSet="material-icons-outlined">
+          nightlight_round</mat-icon>
+        <mat-icon data-test="moon-icon" *ngIf="!isDarkTheme" class="mat-icon-15" fontSet="material-icons-outlined">
+          nightlight</mat-icon>
         Dark Mode
       </button>
     </li>
