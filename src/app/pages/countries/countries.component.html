@@ -25,4 +25,7 @@
     <app-country-card [country]="country" *ngFor="let country of countries$ | async; trackBy:trackCountry">
     </app-country-card>
   </div>
+  <button matTooltip="Scroll to top" (click)="onScrollToTop()" *ngIf="showScroll$ | async" class="scroll-up" mat-fab>
+    <mat-icon>expand_less</mat-icon>
+  </button>
 </ng-container>

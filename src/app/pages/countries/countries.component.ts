@@ -1,10 +1,11 @@
 import { State } from './../../state/app.state';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getCountries, getError, getLoading } from './state/reducers/countries.reducers';
-import { Observable, } from 'rxjs';
+import { fromEvent, map, Observable, } from 'rxjs';
 import { Country } from 'src/app/models/country.model';
 import { getCountriesAction } from './state/actions/countries.actions';
+import { DOCUMENT, ViewportScroller } from '@angular/common';
 
 
 @Component({
@@ -20,8 +21,17 @@ export class CountriesComponent {
 
   regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
 
+  readonly showScroll$: Observable<boolean> = fromEvent(
+    this.document,
+    'scroll'
+  ).pipe(
+    map(() => this.viewport.getScrollPosition()?.[1] > 0)
+  );
+
   constructor(
-    private store: Store<State>
+    private store: Store<State>,
+    @Inject(DOCUMENT) private readonly document: Document,
+    private readonly viewport: ViewportScroller
   ) {
     this.store.dispatch(getCountriesAction({ payload: { type: '', query: '' } }));
   }
@@ -46,5 +56,7 @@ export class CountriesComponent {
   trackCountry(index: number, country: Country) {
     return country.name.common;
   }
-
+  onScrollToTop(): void {
+    this.viewport.scrollToPosition([0, 0]);
+  }
 }

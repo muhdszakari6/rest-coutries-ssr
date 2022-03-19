@@ -36,4 +36,10 @@
     margin-top: 3rem;
     justify-content: center;
   }
+  .scroll-up {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 100;
+  }
 }
