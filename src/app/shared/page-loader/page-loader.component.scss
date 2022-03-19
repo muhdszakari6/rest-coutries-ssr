@@ -1,0 +1,18 @@
+@mixin app-loader($theme) {
+  $primary: map-get($theme, primary);
+
+  .mat-progress-spinner circle,
+  .mat-spinner circle {
+    stroke: mat-contrast($primary, 500) !important;
+  }
+  .loader {
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    transform: translate(30%, 50%);
+    -webkit-transform: translate(30%, 50%);
+    -moz-transform: translate(30%, 50%);
+    -ms-transform: translate(30%, 50%);
+    -o-transform: translate(30%, 50%);
+  }
+}

@@ -1,0 +1,11 @@
+<div class="full-width flex-vertical center">
+  <div>
+    <mat-icon matPrefix color="warn" class="cancel-icon">cancel</mat-icon>
+  </div>
+  <p class="err" *ngIf="msg === ''">
+    Oops, something went wrong.
+  </p>
+  <p class="err" data-test="error-message" *ngIf="msg !== ''">
+    {{msg}}
+  </p>
+</div>

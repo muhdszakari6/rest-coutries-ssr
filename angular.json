@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "e3a4bee0-19cd-4a32-a933-43c4ef3c34bf"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -102,6 +105,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "reloadly-challenge:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reloadly-challenge:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "reloadly-challenge:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reloadly-challenge:serve:production"
+            }
           }
         }
       }

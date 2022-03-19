@@ -1,0 +1,46 @@
+@mixin app-country-card($theme) {
+  $primary: map-get($theme, primary);
+
+  .link {
+    text-decoration: none;
+  }
+  .card {
+    height: 100%;
+    box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+    color: mat-contrast($primary, 500);
+    background: mat-color($primary, 500);
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    &:hover {
+      transform: translateY(-1rem);
+      -webkit-transform: translateY(-1rem);
+      -moz-transform: translateY(-1rem);
+      -ms-transform: translateY(-1rem);
+      -o-transform: translateY(-1rem);
+    }
+    img {
+      width: 100%;
+      height: 20rem;
+      min-height: 20rem;
+      object-fit: cover;
+    }
+    &-details {
+      padding: 2rem;
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+      span {
+        font-size: 1.3rem;
+        color: mat-contrast($primary, 700);
+      }
+    }
+  }
+}

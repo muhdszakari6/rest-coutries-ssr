@@ -1,0 +1,39 @@
+@import "../../../scss/mixin.scss";
+@mixin app-countries($theme) {
+  $primary: map-get($theme, primary);
+
+  .search-icon {
+    margin: 0 1.5rem;
+  }
+  .search-input {
+    width: 45rem;
+    @include respond(tab-port) {
+      width: 35rem;
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+  .select-input {
+    width: 15rem;
+    @include respond(phone) {
+      margin-top: 0.5rem;
+    }
+  }
+  .search-section {
+    display: flex;
+    justify-content: space-between;
+    @include respond(phone) {
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  .countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-template-rows: auto;
+    gap: 7.5rem;
+    margin-top: 3rem;
+    justify-content: center;
+  }
+}

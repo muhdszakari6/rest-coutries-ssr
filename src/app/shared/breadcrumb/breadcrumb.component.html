@@ -1,0 +1,11 @@
+<div class="breadcrumb" *ngIf='routes$ | async as routes'>
+  <h3 *ngIf="routes.length !== 0">Visited Countries</h3>
+  <ul>
+    <li class="breadcrumb-list" *ngFor='let route of routes'>
+      <a class="breadcrumb-link" [attr.data-test]="'breadcrumb-link'" [routerLink]='route'>
+        {{route}}
+      </a>
+      <span class="slash">/</span>
+    </li>
+  </ul>
+</div>

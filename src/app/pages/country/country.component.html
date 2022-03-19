@@ -1,0 +1,89 @@
+<button class="cta-button" data-test="back-btn" type="button" (click)="back()" mat-button>
+  <mat-icon fontSet="material-icons-outlined">arrow_back</mat-icon>
+  Back
+</button>
+
+<app-page-loader *ngIf="loading$ | async">
+</app-page-loader>
+
+<ng-container *ngIf="!(loading$ | async)">
+  <app-error-state [msg]="err" *ngIf="error$ | async as err"></app-error-state>
+
+  <div class="country" *ngIf="country$ | async as country">
+    <img data-test="country-flag" [src]="country?.flags?.svg" [alt]="country?.name?.common" width="250" alt="">
+    <div class="country-details">
+
+
+      <h2 data-test="country-name">{{country.name.common}}</h2>
+      <div class="flex-btw country-more">
+        <div>
+
+          <p>Native name:
+            <span>
+              {{(country.name?.nativeName | firstObjValue) | firstObjValue}}
+            </span>
+          </p>
+
+          <p>Population:
+            <span>
+              {{country?.population | number }}
+            </span>
+          </p>
+
+          <p>Region:
+            <span>
+              {{country?.region}}
+            </span>
+          </p>
+          <p>Sub Region:
+            <span>
+              {{country?.subregion}}
+            </span>
+          </p>
+
+          <p>Capital:
+            <span>
+              {{country?.capital}}
+
+            </span>
+          </p>
+        </div>
+
+        <div class="sub-section">
+          <p>Top Level Domaine:
+            <span>
+              {{country?.tld}}
+
+            </span>
+          </p>
+          <p>Currencies:
+            <span>
+              {{(country?.currencies | firstObjValue) | firstObjValue}}
+            </span>
+          </p>
+
+          <p>Languages:
+            <span>
+              {{country?.languages | firstObjValue}}
+
+            </span>
+          </p>
+        </div>
+
+      </div>
+      <div class="border-countries">
+        <p>Border Countries:
+        </p>
+        <mat-progress-bar *ngIf="borderCountriesLoading$ | async" color="accent" mode="indeterminate">
+        </mat-progress-bar>
+        <button data-test="border-countries" *ngFor="let borderCountry of borderCountries$ | async"
+          (click)="goToCountry(borderCountry.name.common)" class="cta-button" type="button" mat-button>
+          {{borderCountry.name.common}}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+</ng-container>

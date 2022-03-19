@@ -1,0 +1,135 @@
+@import "../app/app.component.scss";
+@import "../app/shared/header/header.component.scss";
+@import "../app/pages/countries/countries.component.scss";
+@import "../app/pages/country/country.component.scss";
+@import "../app/shared/country-card/country-card.component.scss";
+@import "../app/shared/page-loader/page-loader.component.scss";
+@import "../app/shared/breadcrumb/breadcrumb.component.scss";
+
+@import "../app/shared/error-state/error-state.component.scss";
+
+@import "./input.scss";
+
+/* For use in src/lib/core/theming/_palette.scss */
+$reloadly-brand-light: (
+  50: #ffffff,
+  100: #ffffff,
+  200: #ffffff,
+  300: #ffffff,
+  400: #ffffff,
+  500: #ffffff,
+  600: #fafafa,
+  700: #ffffff,
+  800: #ffffff,
+  900: #ffffff,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffffff,
+  A700: #ffffff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #777,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$reloadly-brand-dark: (
+  50: #e6e7e9,
+  100: #bfc4c7,
+  200: #959ca2,
+  300: #6b747d,
+  400: #4b5761,
+  500: #2b3945,
+  600: #202c37,
+  700: #202c36,
+  800: #1a242e,
+  900: #10171f,
+  A100: #62a9ff,
+  A200: #2f8dff,
+  A400: #0072fb,
+  A700: #0066e1,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #fafafa,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+@include mat-core();
+
+$reloadly-primary-light: mat-palette($reloadly-brand-light);
+$reloadly-accent-light: mat-palette($reloadly-brand-light);
+$reloadly-warn-light: mat-palette($mat-red);
+
+$reloadly-theme-light: mat-light-theme(
+  $reloadly-primary-light,
+  $reloadly-accent-light,
+  $reloadly-warn-light
+);
+
+$reloadly-primary-dark: mat-palette($reloadly-brand-dark);
+$reloadly-accent-dark: mat-palette($reloadly-brand-dark);
+$reloadly-warn-dark: mat-palette($mat-red);
+
+$reloadly-theme-dark: mat-dark-theme(
+  $reloadly-primary-dark,
+  $reloadly-accent-dark,
+  $reloadly-warn-dark
+);
+
+.light-theme {
+  @include angular-material-theme($reloadly-theme-light);
+  @include app-root($reloadly-theme-light);
+  @include app-header($reloadly-theme-light);
+  @include app-countries($reloadly-theme-light);
+  @include app-country($reloadly-theme-light);
+  @include app-input($reloadly-theme-light);
+  @include app-country-card($reloadly-theme-light);
+  @include app-loader($reloadly-theme-light);
+  @include app-error($reloadly-theme-light);
+  @include app-breadcrumb($reloadly-theme-light);
+
+  $primary: map-get($reloadly-theme-light, primary);
+  $secondary: map-get($reloadly-theme-light, accent);
+  $white: map-get($reloadly-theme-light, white);
+  $warn: map-get($reloadly-theme-light, warn);
+}
+
+.dark-theme {
+  @include angular-material-theme($reloadly-theme-dark);
+  @include app-root($reloadly-theme-dark);
+  @include app-header($reloadly-theme-dark);
+  @include app-countries($reloadly-theme-dark);
+  @include app-country($reloadly-theme-dark);
+  @include app-input($reloadly-theme-dark);
+  @include app-country-card($reloadly-theme-dark);
+  @include app-loader($reloadly-theme-dark);
+  @include app-error($reloadly-theme-dark);
+  @include app-breadcrumb($reloadly-theme-dark);
+
+  $primary: map-get($reloadly-theme-dark, primary);
+  $secondary: map-get($reloadly-theme-dark, accent);
+  $white: map-get($reloadly-theme-dark, white);
+  $warn: map-get($reloadly-theme-dark, warn);
+}

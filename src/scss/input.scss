@@ -1,0 +1,48 @@
+@import "./mixin.scss";
+
+@mixin app-input($theme) {
+  $primary: map-get($theme, primary);
+
+  .form-input {
+    mat-form-field {
+      color: mat-contrast($primary, 500);
+      font-size: 13px;
+      box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+      @include respond(phone) {
+        font-size: 1.3rem;
+      }
+    }
+    .mat-form-field-appearance-outline
+      .mat-form-field-outline-thick
+      .mat-form-field-outline-start,
+    .mat-form-field-appearance-outline
+      .mat-form-field-outline-thick
+      .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline
+      .mat-form-field-outline-thick
+      .mat-form-field-outline-gap {
+      border: none;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      background: mat-color($primary, 500) !important;
+      border: none;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline-end {
+      border: none;
+      flex-grow: 1;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border: none;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-prefix,
+    .mat-form-field-appearance-outline .mat-form-field-suffix {
+      top: 0.29em !important;
+    }
+    .mat-form-field-infix {
+      border-top: 0.5em solid transparent;
+    }
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+  }
+}

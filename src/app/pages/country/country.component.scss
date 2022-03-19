@@ -1,0 +1,78 @@
+@import "../../../scss/mixin.scss";
+@mixin app-country($theme) {
+  $primary: map-get($theme, primary);
+  .cta-button {
+    box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+    background-color: mat-color($primary, 500);
+    color: mat-contrast($primary, 500);
+  }
+  .country {
+    display: flex;
+    width: 100%;
+    color: mat-contrast($primary, 500);
+    margin-top: 4rem;
+    @include respond(tab-port) {
+      flex-direction: column;
+    }
+
+    img {
+      flex: 1;
+      box-shadow: 0 0 8px 0 rgb(0 0 0 / 10%);
+      object-fit: cover;
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+    &-details {
+      flex: 1;
+      padding: 6rem 10rem;
+
+      @include respond(tab-land) {
+        padding: 6rem 5rem;
+      }
+      @include respond(tab-port) {
+        padding: 6rem 0rem;
+      }
+
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+      span {
+        font-size: 1.3rem;
+        color: mat-contrast($primary, 700);
+      }
+    }
+    &-more {
+      align-items: flex-start;
+      @include respond(phone) {
+        flex-direction: column;
+      }
+    }
+  }
+  .border-countries {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 4rem;
+
+    & button,
+    p {
+      margin-right: 2rem;
+      margin-bottom: 1rem;
+      @include respond(tab-port) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  .sub-section {
+    @include respond(phone) {
+      margin-top: 5rem;
+    }
+  }
+}

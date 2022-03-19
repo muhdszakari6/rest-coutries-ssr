@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; /*1rem = 10px*/
+  scroll-behavior: smooth;
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+    scroll-behavior: smooth;
+  }
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+    scroll-behavior: smooth;
+  }
+}
+
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+  &.stretch {
+    justify-content: space-between;
+  }
+  &.center {
+    align-items: center;
+  }
+}
+
+.flex-btw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.start {
+    align-items: flex-start;
+  }
+  &.stretch {
+    align-items: stretch;
+  }
+}
+.full-width {
+  width: 100%;
+}
+
+.container {
+  max-width: 1024px;
+}
+.custom-scroll-bar {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 10px !important;
+    transition: all 0.5s;
+    height: 10px !important;
+  }
+  &::-ms-scrollbar {
+    width: 10px !important;
+    transition: all 0.5s;
+    height: 10px !important;
+  }
+  &::-o-scrollbar {
+    width: 10px !important;
+    transition: all 0.5s;
+    height: 10px !important;
+  }
+  &::-moz-scrollbar {
+    width: 10px !important;
+    transition: all 0.5s;
+    height: 10px !important;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #777 !important;
+    border-radius: 5px !important;
+  }
+  &::-ms-scrollbar-track {
+    box-shadow: inset 0 0 5px #777 !important;
+    border-radius: 5px !important;
+  }
+  &::-o-scrollbar-track {
+    box-shadow: inset 0 0 5px #777 !important;
+    border-radius: 5px !important;
+  }
+  &::-moz-scrollbar-track {
+    box-shadow: inset 0 0 5px #777 !important;
+    border-radius: 5px !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px !important;
+  }
+  &::-o-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px !important;
+  }
+  &::-ms-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px !important;
+  }
+  &::-moz-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px !important;
+  }
+}

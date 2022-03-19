@@ -1,0 +1,60 @@
+@import "../../../scss/mixin.scss";
+@mixin app-header($theme) {
+  $primary: map-get($theme, primary);
+
+  .app-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
+    background-color: mat-color($primary, 500);
+    color: mat-contrast($primary, 500);
+    padding: 1.5rem 3.5rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+    &-list {
+      list-style: none;
+      display: flex;
+    }
+
+    a {
+      text-decoration: none;
+      color: unset;
+    }
+    &-title {
+      font-weight: 500;
+      margin-bottom: 0;
+      @include respond(phone) {
+        font-size: 1.3rem;
+      }
+    }
+    &-button {
+      @include respond(phone) {
+        font-size: 1.3rem;
+      }
+    }
+    &li {
+      list-style: none;
+    }
+  }
+
+  .mat-icon-15 {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  @keyframes stick-app-bar {
+    0% {
+      transform-origin: top;
+      transform: translateY(-7.5rem);
+    }
+    100% {
+      transform: translateY(1);
+    }
+  }
+}

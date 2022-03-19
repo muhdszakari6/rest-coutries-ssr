@@ -1,0 +1,28 @@
+<div class="search-section form-input">
+  <mat-form-field class="search-input" appearance="outline" ngDefaultControl>
+    <mat-icon matPrefix class="search-icon">search</mat-icon>
+    <input data-test="country-search" #input (keyup)="applyFilter(input.value)" type="text" matInput name="search"
+      placeholder="Search for a country..">
+  </mat-form-field>
+
+  <mat-form-field class="select-input" appearance="outline">
+    <mat-select data-test="country-filter" (selectionChange)="regionChanged($event.value)"
+      placeholder="Filter by Region">
+      <mat-option [value]="''">All</mat-option>
+      <mat-option *ngFor="let region of regions" [value]="region">{{region}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<app-page-loader *ngIf="loading$ | async">
+</app-page-loader>
+
+
+<ng-container *ngIf="!(loading$ | async)">
+  <app-error-state [msg]="err" *ngIf="error$ | async as err"></app-error-state>
+  <div class="countries-grid">
+    <app-country-card [country]="country" *ngFor="let country of countries$ | async; trackBy:trackCountry">
+    </app-country-card>
+  </div>
+</ng-container>

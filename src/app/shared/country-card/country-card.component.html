@@ -1,0 +1,30 @@
+<a [routerLink]="country?.name?.common" data-test="country-link" class="link">
+  <div class="card">
+    <img data-placeholder-background="grey" class="lozad" [attr.data-src]="country?.flags?.svg"
+      [alt]="country?.name?.common" width="250" alt="">
+    <div class="card-details">
+      <h2 data-test="country-name">{{country?.name?.common}}</h2>
+      <div>
+        <p>Population:
+          <span data-test="country-population">
+            {{country?.population | number}}
+          </span>
+        </p>
+
+        <p>Region:
+          <span data-test="country-region">
+            {{country?.region}}
+          </span>
+        </p>
+
+        <p>Capital:
+          <span data-test="country-capital">
+            {{country?.capital}}
+          </span>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</a>
