@@ -140,14 +140,15 @@ describe('Countries Page Test', () => {
     cy.get('[data-test=country-search]').type("Gambia", { force: true })
     cy.get('[data-test=country-link]').click({ force: true })
 
+    cy.intercept('GET', `https://restcountries.com/v3.1/alpha?codes=SEN`).as('getBorderCountries')
+
 
     cy.wait(['@getCountry']).then(
       (request: any) => {
+
+
         cy.get('[data-test=country-name]').should('contain.text', request.response.body[0].name.common)
         cy.get('[data-test="country-flag"]').should('have.attr', 'src').should('include', request.response.body[0]?.flags?.svg)
-
-        cy.intercept('GET', `https://restcountries.com/v3.1/alpha?codes=${request.response.body[0]?.borders.join(',')}`).as('getBorderCountries')
-
         cy.wait(['@getBorderCountries']).then(
           (request: any) => {
             borderCountry = request.response.body[0].name.common
@@ -178,7 +179,7 @@ describe('Countries Page Test', () => {
   })
 
   it('Should have 1 moon icon at an instance', () => {
-    cy.get('.mat-button-wrapper > .mat-icon').then((el) => {
+    cy.get('[data-test=moon-icon]').then((el) => {
       expect(el.length).equal(1)
     })
 
