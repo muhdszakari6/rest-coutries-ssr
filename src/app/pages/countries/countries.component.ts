@@ -1,5 +1,5 @@
 import { State } from './../../state/app.state';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getCountries, getError, getLoading } from './state/reducers/countries.reducers';
 import { fromEvent, map, Observable, } from 'rxjs';

@@ -23,8 +23,7 @@ export class UrlInterceptor implements HttpInterceptor {
   /**
    * Intercepts and prepends base_url from EnvironmentService if request does not begin with http:// or https://
    * @param req  The outgoing request object to handle.
-   * @param next
-   * The next interceptor in the chain, or the backend if no interceptors remain in the chain.
+   * @param next The next interceptor in the chain, or the backend if no interceptors remain in the chain.
    *@returns {Observable}  An observable of the event stream.
   */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

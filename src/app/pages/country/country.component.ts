@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Country } from 'src/app/models/country.model';
 import { getCountryAction } from './state/actions/country.actions';
 import {
@@ -25,14 +25,14 @@ export class CountryComponent {
   loading$: Observable<boolean> = this.store.select(getLoading);
   borderCountriesLoading$: Observable<boolean> = this.store.select(getBorderCountriesLoading);
   error$: Observable<any> = this.store.select(getError);
-
+  routeParamsSub: Subscription
   constructor(
     private location: Location,
     private store: Store<State>,
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.route.params.subscribe((res) => {
+    this.routeParamsSub = this.route.params.subscribe((res) => {
       this.store.dispatch(getCountryAction({ countryName: res['name'] }));
     });
   }
