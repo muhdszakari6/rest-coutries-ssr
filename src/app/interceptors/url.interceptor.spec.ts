@@ -15,11 +15,17 @@ describe('UrlInterceptor', () => {
   let httpTestingController: HttpTestingController;
   let service: CountriesService;
   let mockConfig: jasmine.SpyObj<EnvironmentService>
-  let envService; EnvironmentService
+  let envService: EnvironmentService
 
 
 
   beforeEach(() => {
+    mockConfig = jasmine.createSpyObj('EnvironmentService', [],
+      {
+        'base_url': BASE_URL
+      },
+    )
+
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
@@ -29,11 +35,7 @@ describe('UrlInterceptor', () => {
 
       ]
     });
-    mockConfig = jasmine.createSpyObj('EnvironmentService', [],
-      {
-        'base_url': BASE_URL
-      },
-    )
+
     service = TestBed.inject(CountriesService);
     envService = TestBed.inject(EnvironmentService)
     httpTestingController = TestBed.inject(HttpTestingController);
