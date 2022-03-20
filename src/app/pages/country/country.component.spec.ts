@@ -3,7 +3,7 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Country } from 'src/app/models/country.model';
-import { FirstObjValuePipe } from 'src/app/pipes/first-obj-key.pipe';
+import { FirstObjValuePipe } from 'src/app/pipes/first-obj-value.pipe';
 import { TESTING_CONSTANTS } from 'src/app/shared/constants/test-constants';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CountryComponent } from './country.component';

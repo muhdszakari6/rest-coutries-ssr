@@ -36,6 +36,16 @@ export const themeReducer = createRehydrateReducer<ThemeState>(
   })
 );
 
+
+/**
+* Creates reducer using stored state in localStorage or passed in initialState
+*  @param {string} key Key value of state stored or to be stored in localStorage
+*  @param {S} initialState Initial state of the reducer to be used when state is not in localStorage.
+*  @param { ReducerTypes<S, ActionCreator[]>[]} ons Associations between actions and state changes.
+* @return A reducer function
+  @usageNotes
+  New ons gets created to save any state/store change to localStorage
+**/
 export function createRehydrateReducer<S, A extends Action = Action>(
   key: string,
   initialState: S,

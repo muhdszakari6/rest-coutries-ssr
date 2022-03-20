@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Country } from 'src/app/models/country.model';
-import { TESTING_CONSTANTS } from '../constants/test-constants';
-import { SharedModule } from '../shared.module';
+import { TESTING_CONSTANTS } from '../../../shared/constants/test-constants';
+import { SharedModule } from '../../../shared/shared.module';
 
 import { CountryCardComponent } from './country-card.component';
 

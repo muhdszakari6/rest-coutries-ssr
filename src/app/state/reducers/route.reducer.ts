@@ -31,6 +31,13 @@ export const routeReducer = createReducer<RouteState>(
   })
 );
 
+/**
+* Appends route to already existing routes
+*  @param {string[]} routes Routes of all visited pages stored in store.
+*  @param {string} route Routes of newly visited page to be stored in store.
+*
+* @return new routes in an array
+**/
 const appendRoute = (routes: string[], route: string) => {
   let existing_route = routes.filter((_route) => _route === route)
   let newRoutes = [...routes]

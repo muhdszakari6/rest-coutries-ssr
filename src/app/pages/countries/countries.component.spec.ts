@@ -5,7 +5,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { Country } from 'src/app/models/country.model';
 import { TESTING_CONSTANTS } from 'src/app/shared/constants/test-constants';
-import { CountryCardComponent } from 'src/app/shared/country-card/country-card.component';
+import { CountryCardComponent } from 'src/app/pages/countries/country-card/country-card.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CountriesComponent } from './countries.component';
 import { getCountriesAction } from './state/actions/countries.actions';

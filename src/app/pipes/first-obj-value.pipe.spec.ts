@@ -1,6 +1,6 @@
-import { FirstObjValuePipe } from './first-obj-key.pipe';
+import { FirstObjValuePipe } from './first-obj-value.pipe';
 
-describe('FirstObjKeyPipe', () => {
+describe('FirstObjValuePipe', () => {
   it('create an instance', () => {
     const pipe = new FirstObjValuePipe();
     expect(pipe).toBeTruthy();

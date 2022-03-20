@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { CountryRoutingModule } from './country-routing.module';
 import { CountryComponent } from './country.component';
@@ -8,7 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { CountryEffects } from './state/effects/country.effects';
 import { countryReducer } from './state/reducers/country.reducers';
-import { FirstObjValuePipe } from 'src/app/pipes/first-obj-key.pipe';
+import { FirstObjValuePipe } from 'src/app/pipes/first-obj-value.pipe';
 import { CountriesModule } from '../countries/countries.module';
 
 

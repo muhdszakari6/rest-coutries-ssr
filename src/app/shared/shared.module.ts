@@ -8,14 +8,13 @@ import { PageLoaderComponent } from './page-loader/page-loader.component';
 import { ErrorStateComponent } from './error-state/error-state.component';
 import { HeaderComponent } from './header/header.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { CountryCardComponent } from './country-card/country-card.component';
 
 const components = [
   HeaderComponent,
   PageLoaderComponent,
   ErrorStateComponent,
   BreadcrumbComponent,
-  CountryCardComponent
+
 
 ]
 const sharedModules = [
