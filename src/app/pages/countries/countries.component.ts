@@ -20,6 +20,9 @@ export class CountriesComponent {
   error$: Observable<any> = this.store.select(getError)
 
   regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"]
+  selectedRegion: string | undefined
+  searchValue: string = ''
+
 
   readonly showScroll$: Observable<boolean> = fromEvent(
     this.document,
@@ -42,7 +45,7 @@ export class CountriesComponent {
     } else {
       this.store.dispatch(getCountriesAction({ payload: { type: 'search', query: filterValue.toLowerCase() } }));
     }
-
+    this.selectedRegion = ''
   }
 
   regionChanged(region: string) {
@@ -51,6 +54,7 @@ export class CountriesComponent {
     } else {
       this.store.dispatch(getCountriesAction({ payload: { type: 'filter', query: region } }));
     }
+    this.searchValue = ''
   }
 
   trackCountry(index: number, country: Country) {

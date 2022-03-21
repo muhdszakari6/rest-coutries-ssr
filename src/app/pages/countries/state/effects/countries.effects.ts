@@ -11,7 +11,6 @@ export class CountriesEffects {
 
   constructor(private actions$: Actions, private countriesService: CountriesService) { }
 
-
   countries$ = createEffect(() => {
     return this.actions$
       .pipe(
@@ -25,8 +24,7 @@ export class CountriesEffects {
               return this.countriesService.searchCountries(action.payload.query)
                 .pipe(
                   map(res => {
-                    this.cache.set(serializedAction, res);
-                    return getCountriesSuccess({ countries: res })
+                    return this.mapResponse(res, serializedAction)
                   }),
                   catchError(error => of(getCountriesFailure({ error })))
                 )
@@ -40,8 +38,7 @@ export class CountriesEffects {
               return this.countriesService.filterByRegion(action.payload.query)
                 .pipe(
                   map(res => {
-                    this.cache.set(serializedAction, res);
-                    return getCountriesSuccess({ countries: res })
+                    return this.mapResponse(res, serializedAction)
                   }),
                   catchError(error => of(getCountriesFailure({ error })))
                 )
@@ -55,8 +52,7 @@ export class CountriesEffects {
               return this.countriesService.getCountries()
                 .pipe(
                   map(res => {
-                    this.cache.set(serializedAction, res);
-                    return getCountriesSuccess({ countries: res })
+                    return this.mapResponse(res, serializedAction)
                   }),
                   catchError(error => of(getCountriesFailure({ error })))
                 )
@@ -66,4 +62,15 @@ export class CountriesEffects {
       );
   });
 
+  mapResponse = (response: Country[], serializedAction: string) => {
+    let sortedResponse = sortCountries(response)
+    this.cache.set(serializedAction, sortedResponse);
+    return getCountriesSuccess({ countries: sortedResponse })
+  }
+
+}
+
+
+const sortCountries = (countries: Country[]) => {
+  return countries.sort((a: Country, b: Country) => (a.name.common > b.name.common) ? 1 : ((b.name.common > a.name.common) ? -1 : 0))
 }

@@ -1,12 +1,12 @@
 <div class="search-section form-input">
   <mat-form-field class="search-input" appearance="outline" ngDefaultControl>
     <mat-icon matPrefix class="search-icon">search</mat-icon>
-    <input data-test="country-search" #input (keyup)="applyFilter(input.value)" type="text" matInput name="search"
-      placeholder="Search for a country..">
+    <input data-test="country-search" #input [(ngModel)]="searchValue" (keyup)="applyFilter(input.value)" type="text"
+      matInput name="search" placeholder="Search for a country..">
   </mat-form-field>
 
   <mat-form-field class="select-input" appearance="outline">
-    <mat-select data-test="country-filter" (selectionChange)="regionChanged($event.value)"
+    <mat-select data-test="country-filter" [(ngModel)]="selectedRegion" (selectionChange)="regionChanged($event.value)"
       placeholder="Filter by Region">
       <mat-option [value]="''">All</mat-option>
       <mat-option *ngFor="let region of regions" [value]="region">{{region}}</mat-option>
