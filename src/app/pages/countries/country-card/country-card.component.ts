@@ -17,6 +17,14 @@ export class CountryCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.observeImagesWithLozad()
+  }
+
+
+  /**
+  * Lazy loads images using lozad library
+  */
+  observeImagesWithLozad() {
     const observer = lozad();
     observer.observe();
   }
