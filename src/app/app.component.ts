@@ -27,6 +27,8 @@ export class AppComponent {
     private _renderer: Renderer2,
     private store: Store<State>,
   ) {
+    this.disableAutoZoomIos()
+
     this.loading = false
 
     this.loaderSubscription = this.router.events.subscribe(
@@ -49,6 +51,7 @@ export class AppComponent {
         this.darkTheme = isDarkTheme
       }
     )
+
   }
 
   changeTheme() {
@@ -79,4 +82,14 @@ export class AppComponent {
     this.loaderSubscription.unsubscribe();
     this.themeSubscription.unsubscribe();
   }
+
+  disableAutoZoomIos() {
+    let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+    if (iOS && document?.head?.querySelector('meta[name="viewport"]')?.getAttribute('content'))
+      document?.head?.querySelector('meta[name="viewport"]')?.setAttribute('content', "width=device-width, initial-scale=1, maximum-scale=1");
+    else
+      document?.head?.querySelector('meta[name="viewport"]')?.setAttribute('content', "width=device-width, initial-scale=1");
+  }
+
+
 }
