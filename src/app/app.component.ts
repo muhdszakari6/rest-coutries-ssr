@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { toggleTheme } from './state/actions/theme.actions';
 import { saveRoute } from './state/actions/route.action';
 import { getRoutes } from './state/reducers/route.reducer';
+import { PromptUpdateService } from './services/prompt-update.service';
 
 
 @Component({
@@ -26,8 +27,11 @@ export class AppComponent {
     private router: Router,
     private _renderer: Renderer2,
     private store: Store<State>,
+    private promptUpdate: PromptUpdateService
   ) {
+
     this.disableAutoZoomIos()
+    this.promptUpdate.promptServiceWorkerUpdate()
 
     this.loading = false
 

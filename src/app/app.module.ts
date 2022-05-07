@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UrlInterceptor } from './interceptors/url.interceptor';
 import { EnvironmentService } from './services/environment.service';
 import { routeReducer } from './state/reducers/route.reducer';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,12 @@ import { routeReducer } from './state/reducers/route.reducer';
       logOnly: environment.production
     }),
     EffectsModule.forRoot([]),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     { provide: EnvironmentService, useValue: environment },
