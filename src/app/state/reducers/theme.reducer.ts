@@ -7,6 +7,7 @@ import {
   ActionType,
 } from '@ngrx/store';
 import { toggleTheme } from '../actions/theme.actions';
+
 export interface ThemeState {
   isDarkTheme: boolean;
 }

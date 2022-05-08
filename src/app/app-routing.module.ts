@@ -12,8 +12,7 @@ const routes: Routes = [
     initialNavigation: 'enabled',
     enableTracing: false,
     scrollPositionRestoration: 'enabled',
-
-  })],
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
