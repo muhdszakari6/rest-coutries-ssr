@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit, PLATFORM_ID } from '@angular/core';
 import { Country } from 'src/app/models/country.model';
 import * as lozad_ from 'lozad'
+import { isPlatformBrowser } from '@angular/common';
 const lozad = lozad_
 
 @Component({
@@ -14,10 +15,10 @@ export class CountryCardComponent implements OnInit {
 
   @Input() country: Country | undefined
 
-  constructor() { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
-    this.observeImagesWithLozad()
+    isPlatformBrowser(this.platformId) ? this.observeImagesWithLozad() : null
   }
 
 
