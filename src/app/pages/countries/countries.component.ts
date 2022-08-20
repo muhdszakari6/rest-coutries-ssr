@@ -35,7 +35,12 @@ export class CountriesComponent {
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller
   ) {
-    // this.store.dispatch(getCountriesAction({ payload: { type: '', query: '' } }));
+
+    if (window) {
+      console.log(window)
+      return
+    }
+    this.store.dispatch(getCountriesAction({ payload: { type: '', query: '' } }));
   }
 
   applyFilter(filterValue: string) {
