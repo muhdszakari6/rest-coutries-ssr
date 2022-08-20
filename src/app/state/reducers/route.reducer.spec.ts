@@ -5,8 +5,6 @@ import { rootInitalState } from 'src/app/shared/constants/test-constants';
 describe('RouteReducer', () => {
   const { initialState } = fromReducer;
 
-
-
   describe('unknown action', () => {
     it('should return the default state', () => {
       const action = {

@@ -22,7 +22,8 @@ export class CountryEffects {
     private actions$: Actions,
     private store: Store<State>,
     private countriesService: CountriesService
-  ) { }
+  ) {
+  }
 
   country$ = createEffect(() => {
     return this.actions$.pipe(

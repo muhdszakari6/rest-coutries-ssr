@@ -1,7 +1,6 @@
-import { State } from './../../state/app.state';
 import { Component, Inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getCountries, getError, getLoading } from './state/reducers/countries.reducers';
+import { getCountries, getError, getLoading, State } from './state/reducers/countries.reducers';
 import { fromEvent, map, Observable, } from 'rxjs';
 import { Country } from 'src/app/models/country.model';
 import { getCountriesAction } from './state/actions/countries.actions';
@@ -36,7 +35,7 @@ export class CountriesComponent {
     @Inject(DOCUMENT) private readonly document: Document,
     private readonly viewport: ViewportScroller
   ) {
-    this.store.dispatch(getCountriesAction({ payload: { type: '', query: '' } }));
+    // this.store.dispatch(getCountriesAction({ payload: { type: '', query: '' } }));
   }
 
   applyFilter(filterValue: string) {

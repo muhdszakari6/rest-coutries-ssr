@@ -22,7 +22,7 @@ export const initialState: CountriesState = {
 
 export const countriesReducer = createReducer<CountriesState>(
   initialState,
-  on(getCountriesAction, (state, action): CountriesState => {
+  on(getCountriesAction, (state): CountriesState => {
     return {
       ...state,
       loading: true,

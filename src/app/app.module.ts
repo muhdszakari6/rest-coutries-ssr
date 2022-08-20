@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,7 +24,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    StoreModule.forRoot({},),
+    // StoreModule.forRoot({},),
     StoreModule.forRoot({ 'theme': themeReducer, 'routes': routeReducer }, {}),
     StoreDevtoolsModule.instrument({
       name: 'Reloadly Challenge Redux DevTools',
@@ -44,6 +44,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     { provide: HTTP_INTERCEPTORS, useClass: UrlInterceptor, multi: true, },
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
