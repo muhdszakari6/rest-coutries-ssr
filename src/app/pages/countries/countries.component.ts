@@ -1,10 +1,10 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getCountries, getError, getLoading, State } from './state/reducers/countries.reducers';
 import { fromEvent, map, Observable, } from 'rxjs';
 import { Country } from 'src/app/models/country.model';
 import { getCountriesAction } from './state/actions/countries.actions';
-import { DOCUMENT, ViewportScroller, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, ViewportScroller, } from '@angular/common';
 
 
 @Component({
@@ -34,14 +34,9 @@ export class CountriesComponent {
   constructor(
     private store: Store<State>,
     @Inject(DOCUMENT) private readonly document: Document,
-    @Inject(PLATFORM_ID) platformId: Object,
     private readonly viewport: ViewportScroller
   ) {
-    this.isBrowser = isPlatformBrowser(platformId)
 
-    if (this.isBrowser) {
-      return
-    }
     this.store.dispatch(getCountriesAction({ payload: { type: '', query: '' } }));
   }
 
