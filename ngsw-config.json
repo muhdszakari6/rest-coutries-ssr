@@ -43,7 +43,7 @@
         "/v3.1//name/nether"
       ],
       "cacheConfig": {
-        "maxSize": 1,
+        "maxSize": 5,
         "maxAge": "30d",
         "timeout": "0u",
         "strategy": "freshness"
