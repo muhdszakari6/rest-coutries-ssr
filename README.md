@@ -1,27 +1,50 @@
-# ReloadlyChallenge
+# Fun with countries
+Angular PWA application with SSR and SSG showing list of countries in the world. 
+Technologies used: angular, angular universal, angular pwa, ngrx, jasmine, cypresss.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
+##### Install npm modules
 
-## Development server
+```shell
+npm install
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Run application
 
-## Code scaffolding
+```shell
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##### Run unit tests 
 
-## Build
+```shell
+ng test
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+##### Run e2e tests 
 
-## Running unit tests
+```shell
+npm run cypress:run 
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##### Build
 
-## Running end-to-end tests
+```shell
+npm run build
+```
+##### Build SSR
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```shell
+npm run build:ssr
+```
 
-## Further help
+##### Run SSR
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```shell
+npm run serve:ssr
+```
+
+##### Prerender
+
+```shell
+npm run prerender
+```
