@@ -40,11 +40,11 @@
         "/v3.1//name/Nigeria?fullText=true",
         "/v3.1//name/Niger?fullText=true",
         "/v3.1//name/nigeria",
-        "/^v3.1//name/nether$/"
+        "/v3.1//name/nether/"
       ],
       "cacheConfig": {
         "maxSize": 5,
-        "maxAge": "3s",
+        "maxAge": "30s",
         "timeout": "0u",
         "strategy": "freshness"
       }
