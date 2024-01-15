@@ -33,11 +33,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/manifest.webmanifest",
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "/"
-              }
+              "_redirects"
             ],
             "styles": ["src/styles.scss"],
             "scripts": [],
