@@ -181,7 +181,7 @@
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "routes": ["/", "Nigeria"],
+            "routes": ["/", "Nigeria", "Algeria"],
             "guessRoutes": false
           },
           "configurations": {
