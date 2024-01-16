@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { CountriesComponent } from './countries.component';
 
 const routes: Routes = [
-  { path: '', component: CountriesComponent },
   {
     path: ':name',
     loadChildren: () => import('../country/country.module').then(m => m.CountryModule),
-  }
+  },
+  { path: '', component: CountriesComponent },
 
 ];
 
