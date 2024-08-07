@@ -22,7 +22,7 @@ export class CountriesService {
   * @returns {Observable<Country[]>} Returns an observable that emits all countries if successful.
   */
   getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>('/all')
+    return this.http.get<Country[]>('all')
       .pipe(
         catchError(err => this.errorHandler(err)),
       )
@@ -36,7 +36,7 @@ export class CountriesService {
   * @returns {Observable<Country[]>} Returns an observable that emits found countries if successful.
   */
   searchCountries(country: string): Observable<Country[]> {
-    return this.http.get<Country[]>(`/name/${country}`)
+    return this.http.get<Country[]>(`name/${country}`)
       .pipe(
         catchError(err => this.errorHandler(err)),
       )
@@ -51,7 +51,7 @@ export class CountriesService {
   * @returns {Observable<Country[]>} Returns an observable that emits found country if successful.
   */
   getCountryByFullText(country: string): Observable<Country[]> {
-    return this.http.get<Country[]>(`/name/${country}?fullText=true`)
+    return this.http.get<Country[]>(`name/${country}?fullText=true`)
       .pipe(
         catchError(err => this.errorHandler(err)),
       )
@@ -66,7 +66,7 @@ export class CountriesService {
  * @returns {Observable<Country[]>} Returns an observable that emits found countries if successful.
  */
   getBorderCountries(borderCodes: string[]): Observable<Country[]> {
-    return this.http.get<Country[]>(`/alpha?codes=${borderCodes?.join(",")}`)
+    return this.http.get<Country[]>(`alpha?codes=${borderCodes?.join(",")}`)
       .pipe(
         catchError(err => this.errorHandler(err)),
       )
@@ -80,7 +80,7 @@ export class CountriesService {
  * @returns {Observable<Country[]>} Returns an observable that emits found countries in region if successful.
  */
   filterByRegion(region: string): Observable<Country[]> {
-    return this.http.get<Country[]>(`/region/${region}`)
+    return this.http.get<Country[]>(`region/${region}`)
       .pipe(
         catchError(err => this.errorHandler(err)),
       )
