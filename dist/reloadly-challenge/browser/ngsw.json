@@ -1,0 +1,112 @@
+{
+  "configVersion": 1,
+  "timestamp": 1705430537387,
+  "index": "/browser/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/511.ffb7006d5b63064e.js",
+        "/686.7ba3486be2ef0428.js",
+        "/Nigeria/index.html",
+        "/favicon.ico",
+        "/index.html",
+        "/main.a8891be66fb33014.js",
+        "/manifest.webmanifest",
+        "/polyfills.307e9529535c50ce.js",
+        "/runtime.9f9221e43f683eab.js",
+        "/styles.fd9dfa54bd22cf0d.css"
+      ],
+      "patterns": [
+        "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
+        "https:\\/\\/fonts\\.gstatic\\.com\\/.*"
+      ]
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/svgs/github.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "cached-countries",
+      "patterns": [
+        "\\/v3\\.1\\/\\/all",
+        "\\/v3\\.1\\/\\/name\\/Netherlands\\?fullText=true",
+        "\\/v3\\.1\\/\\/name\\/Nigeria\\?fullText=true",
+        "\\/v3\\.1\\/\\/name\\/Niger\\?fullText=true",
+        "\\/v3\\.1\\/\\/name\\/nigeria",
+        "\\/v3\\.1\\/\\/name\\/netherlands"
+      ],
+      "strategy": "freshness",
+      "maxSize": 5,
+      "maxAge": 30000,
+      "timeoutMs": 0,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/511.ffb7006d5b63064e.js": "62ea41a85a1e3234d0c7da869890259df56eeefa",
+    "/686.7ba3486be2ef0428.js": "838fa39a6690eb45da36cdd20943568a8baceaff",
+    "/Nigeria/index.html": "c9bb691e15b689a32bf4a644002d65e258f3d34b",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/svgs/github.svg": "9bebe0be832c335550daf1568dcfb73bdeebcc9f",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "b14bc2490044193e375c1380c710ecaf0b709146",
+    "/main.a8891be66fb33014.js": "b74c5b868bfb7150312835ee5a6b2eb00eed2292",
+    "/manifest.webmanifest": "10c1c3688d11de61c444b8400d6457dc4b505dc2",
+    "/polyfills.307e9529535c50ce.js": "0083597acc3cd37e6654c927734118763565e536",
+    "/runtime.9f9221e43f683eab.js": "4bf162586dcc492696a495c624b0ae26c6e771c7",
+    "/styles.fd9dfa54bd22cf0d.css": "ff4143fa8d82d2176b1ce678b018b7bf0d3e933f"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
