@@ -67,12 +67,12 @@ describe('CountryComponent', () => {
 
   it('should  display correct country flag', () => {
     const countryFlag = fixture.debugElement.query(By.css('img[data-test="country-flag"]')).nativeElement
-    expect(countryFlag.src.trim()).toBe(COUNTRIES[1].flags.svg)
+    expect(countryFlag.src.trim()).toBe(COUNTRIES[1].flag.url_svg)
   });
 
   it('should display correct country name', () => {
     const countryName = fixture.debugElement.query(By.css('h2[data-test="country-name"]')).nativeElement
-    expect(countryName.innerText.trim()).toBe(COUNTRIES[1].name.common)
+    expect(countryName.innerText.trim()).toBe(COUNTRIES[1].names.common)
   });
 
   it('should display border countries', () => {

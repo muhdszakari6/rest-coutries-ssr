@@ -56,7 +56,7 @@ describe('UrlInterceptor', () => {
 
       }
     };
-    const request: HttpRequest<any> = new HttpRequest<any>("GET", `/all`);
+    const request: HttpRequest<any> = new HttpRequest<any>("GET", `?limit=250`);
 
     interceptor.intercept(request, next);
     done()

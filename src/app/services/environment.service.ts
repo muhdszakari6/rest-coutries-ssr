@@ -6,5 +6,6 @@ import { Injectable } from '@angular/core';
 export class EnvironmentService {
 
   base_url: string = '';
+  api_key: string = '';
 
 }

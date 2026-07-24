@@ -1,81 +1,103 @@
 export interface NativeName {
-  official: string,
-  common: string
+  official: string;
+  common: string;
 }
 
 export interface CountryNativeName {
   [key: string]: NativeName;
 }
 
-export interface CountryName {
-  common: string,
-  official: string,
-  nativeName: CountryNativeName
+export interface CountryNames {
+  common: string;
+  official: string;
+  native: CountryNativeName;
+  alternates: string[];
+  translations: { [key: string]: NativeName };
 }
 
 export interface Currency {
-  name: string,
-  symbol: string
+  name: string;
+  symbol: string;
 }
 
 export interface CountryCurrency {
   [key: string]: Currency;
-
 }
 
-export interface Idd {
-  root: string,
-  suffixes: string[]
+export interface Capital {
+  name: string;
+  coordinates?: { lat: number; lng: number };
+  role?: string;
 }
 
-export interface Language {
-  [key: string]: string
+export interface CountryFlag {
+  emoji: string;
+  unicode: string;
+  html_entity: string;
+  url_png: string;
+  url_svg: string;
+  description: string;
 }
 
-export interface Translations {
-  [key: string]: NativeName
-
+export interface CountryCodes {
+  alpha_2: string;
+  alpha_3: string;
+  ccn3: string;
+  cioc?: string;
+  fifa?: string;
+  fips?: string;
 }
 
-export interface Flags {
-  svg: string,
-  png: string
+export interface CountryArea {
+  kilometers: number;
+  miles: number;
 }
 
-export interface Denonym {
-  f: string,
-  m: string
+export interface CountryLanguage {
+  iso_639_3: string;
+  bcp_47: string;
+  name: string;
+  native_name: string;
 }
 
-export interface CountryDenonym {
-  [key: string]: Denonym
-
+export interface CallingCode {
+  root: string;
+  suffixes: string[];
 }
 
 export interface Country {
-  name: CountryName,
-  tld: string[],
-  cca2: string,
-  ccn3: string,
-  cca3: string,
-  cioc: string,
-  independent: boolean,
-  status: string,
-  unMember: boolean,
-  currencies: CountryCurrency,
-  idd: Idd,
-  capital: string[]
-  altSpellings: string[],
-  region: string,
-  borders: string[],
-  subregion: string,
-  languages: Language,
-  translations: Translations,
-  latlng: number[],
-  landlocked: boolean,
-  area: number,
-  population: number,
-  flag: string,
-  flags: Flags,
-  demonyms: CountryDenonym
+  names: CountryNames;
+  tlds: string[];
+  codes: CountryCodes;
+  independent: boolean;
+  status: string;
+  classification: {
+    un_member: boolean;
+    sovereign: boolean;
+  };
+  currencies: CountryCurrency;
+  calling_codes: CallingCode[];
+  capitals: Capital[];
+  region: string;
+  borders: string[];
+  subregion: string;
+  languages: CountryLanguage[];
+  landlocked: boolean;
+  area: CountryArea;
+  population: number;
+  flag: CountryFlag;
+  continents: string[];
+}
+
+export interface ApiResponse<T> {
+  data: {
+    objects: T;
+    meta: {
+      total: number;
+      count: number;
+      limit: number;
+      offset: number;
+      more: boolean;
+    };
+  };
 }

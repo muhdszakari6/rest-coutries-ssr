@@ -10,17 +10,17 @@
   <app-error-state [msg]="err" *ngIf="error$ | async as err"></app-error-state>
 
   <div class="country" *ngIf="country$ | async as country">
-    <img data-test="country-flag" [src]="country?.flags?.svg" [alt]="country?.name?.common" width="250" alt="">
+    <img data-test="country-flag" [src]="country?.flag?.url_svg" [alt]="country?.names?.common" width="250" alt="">
     <div class="country-details">
 
 
-      <h2 data-test="country-name">{{country.name.common}}</h2>
+      <h2 data-test="country-name">{{country.names.common}}</h2>
       <div class="flex-btw country-more">
         <div>
 
           <p>Native name:
             <span>
-              {{(country.name?.nativeName | firstObjValue) | firstObjValue}}
+              {{(country.names?.native | firstObjValue) | firstObjValue}}
             </span>
           </p>
 
@@ -43,7 +43,7 @@
 
           <p>Capital:
             <span>
-              {{country?.capital}}
+              {{country?.capitals?.[0]?.name}}
 
             </span>
           </p>
@@ -52,7 +52,7 @@
         <div class="sub-section">
           <p>Top Level Domaine:
             <span>
-              {{country?.tld}}
+              {{country?.tlds}}
 
             </span>
           </p>
@@ -64,7 +64,7 @@
 
           <p>Languages:
             <span>
-              {{country?.languages | firstObjValue}}
+              {{country?.languages?.[0]?.name}}
 
             </span>
           </p>
@@ -77,8 +77,8 @@
         <mat-progress-bar *ngIf="borderCountriesLoading$ | async" color="accent" mode="indeterminate">
         </mat-progress-bar>
         <button data-test="border-countries" *ngFor="let borderCountry of borderCountries$ | async"
-          (click)="goToCountry(borderCountry.name.common)" class="cta-button" type="button" mat-button>
-          {{borderCountry.name.common}}
+          (click)="goToCountry(borderCountry.names.common)" class="cta-button" type="button" mat-button>
+          {{borderCountry.names.common}}
         </button>
       </div>
 

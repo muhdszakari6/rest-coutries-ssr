@@ -39,7 +39,7 @@ describe('CountryCardComponent', () => {
   });
   it('should display country name', () => {
     const countryName = fixture.debugElement.query(By.css('h2[data-test="country-name"]')).nativeElement
-    expect(countryName.innerText).toBe(COUNTRIES[1].name.common)
+    expect(countryName.innerText).toBe(COUNTRIES[1].names.common)
   });
 
   it('should display country population', () => {
@@ -55,7 +55,7 @@ describe('CountryCardComponent', () => {
 
   it('should display country capital', () => {
     const capital = fixture.debugElement.query(By.css('span[data-test="country-capital"]')).nativeElement
-    expect(capital.innerText).toBe(COUNTRIES[1].capital[0])
+    expect(capital.innerText).toBe(COUNTRIES[1].capitals[0].name)
   });
 
 });

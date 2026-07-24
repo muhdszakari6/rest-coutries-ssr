@@ -59,7 +59,7 @@ export class CountriesComponent {
   }
 
   trackCountry(index: number, country: Country) {
-    return country.name.common;
+    return country.names.common;
   }
   onScrollToTop(): void {
     this.viewport.scrollToPosition([0, 0]);

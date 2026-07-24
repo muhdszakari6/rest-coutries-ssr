@@ -72,5 +72,5 @@ export class CountriesEffects {
 
 
 const sortCountries = (countries: Country[]) => {
-  return countries.sort((a: Country, b: Country) => (a.name.common > b.name.common) ? 1 : ((b.name.common > a.name.common) ? -1 : 0))
+  return countries.sort((a: Country, b: Country) => (a.names.common > b.names.common) ? 1 : ((b.names.common > a.names.common) ? -1 : 0))
 }

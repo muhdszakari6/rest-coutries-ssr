@@ -27,7 +27,11 @@ export class UrlInterceptor implements HttpInterceptor {
    *@returns {Observable}  An observable of the event stream.
   */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = req.clone({ url: this.prepareUrl(req.url) });
+    const headers: { [name: string]: string } = {};
+    if (this.config?.api_key) {
+      headers['Authorization'] = `Bearer ${this.config.api_key}`;
+    }
+    req = req.clone({ url: this.prepareUrl(req.url), setHeaders: headers });
     return next.handle(req);
   }
 
