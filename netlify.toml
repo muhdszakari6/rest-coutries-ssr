@@ -1,0 +1,12 @@
+[build]
+  command = "npm run prerender"
+  publish = "dist/reloadly-challenge/browser"
+
+[build.environment]
+  NODE_VERSION = "16"
+  SECRETS_SCAN_OMIT_PATHS = "src/environments/environment.prod.ts"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
