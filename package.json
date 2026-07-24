@@ -13,7 +13,8 @@
     "dev:ssr": "ng run reloadly-challenge:serve-ssr",
     "serve:ssr": "node dist/reloadly-challenge/server/main.js",
     "build:ssr": "ng build && ng run reloadly-challenge:server",
-    "prerender": "ng run reloadly-challenge:prerender"
+    "set-env": "node scripts/set-env.js",
+    "prerender": "npm run set-env && ng run reloadly-challenge:prerender"
   },
   "private": true,
   "dependencies": {
