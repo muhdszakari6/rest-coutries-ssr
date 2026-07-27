@@ -3,7 +3,7 @@
   publish = "dist/reloadly-challenge/browser"
 
 [build.environment]
-  NODE_VERSION = "16"
+  NODE_VERSION = "18"
   SECRETS_SCAN_OMIT_PATHS = "src/environments/environment.prod.ts"
 
 [[redirects]]
