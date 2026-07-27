@@ -51,7 +51,7 @@ export class UrlInterceptor implements HttpInterceptor {
   * @returns {string} Returns the prepared url of a request
   */
   private prepareUrl(url: string): string {
-    url = this.isAbsoluteUrl(url) ? url : this.config.base_url + '/' + url;
+    url = this.isAbsoluteUrl(url) ? url : this.config.base_url + url;
     return url
   }
 }

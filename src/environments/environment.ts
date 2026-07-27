@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   base_url: 'https://api.restcountries.com/countries/v5',
-  api_key: ''
+  api_key: (typeof process !== 'undefined' && process.env['API_KEY']) || ''
 };
 
 /*

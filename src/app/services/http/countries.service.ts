@@ -11,7 +11,7 @@ export class CountriesService {
   constructor(private http: HttpClient) { }
 
   getCountries(): Observable<Country[]> {
-    return this.http.get<ApiResponse<Country[]>>('?limit=250')
+    return this.http.get<ApiResponse<Country[]>>('?limit=100')
       .pipe(
         map(res => res.data.objects),
         catchError(err => this.errorHandler(err)),
@@ -27,7 +27,7 @@ export class CountriesService {
   }
 
   getCountryByFullText(country: string): Observable<Country[]> {
-    return this.http.get<ApiResponse<Country[]>>(`names.common/${country}`)
+    return this.http.get<ApiResponse<Country[]>>(`/names.common/${country}`)
       .pipe(
         map(res => res.data.objects),
         catchError(err => this.errorHandler(err)),
@@ -40,7 +40,7 @@ export class CountriesService {
     }
     return forkJoin(
       borderCodes.map(code =>
-        this.http.get<ApiResponse<Country[]>>(`codes.alpha_3/${code}`)
+        this.http.get<ApiResponse<Country[]>>(`/codes.alpha_3/${code}`)
           .pipe(map(res => res.data.objects[0]))
       )
     ).pipe(
@@ -49,7 +49,7 @@ export class CountriesService {
   }
 
   filterByRegion(region: string): Observable<Country[]> {
-    return this.http.get<ApiResponse<Country[]>>(`region/${region}`)
+    return this.http.get<ApiResponse<Country[]>>(`/region/${region}`)
       .pipe(
         map(res => res.data.objects),
         catchError(err => this.errorHandler(err)),
