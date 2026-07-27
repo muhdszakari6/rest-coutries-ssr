@@ -1,5 +1,6 @@
 import { getCurrentTheme } from './state/reducers/theme.reducer';
-import { Component, Renderer2 } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { Router, RouteConfigLoadStart, RouteConfigLoadEnd, NavigationEnd } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { State } from './state/app.state';
@@ -21,17 +22,22 @@ export class AppComponent {
   themeSubscription: Subscription;
   darkTheme: boolean = false;
   routes$: Observable<string[]> = this.store.select(getRoutes)
-
+  private isBrowser: boolean;
 
   constructor(
     private router: Router,
     private _renderer: Renderer2,
     private store: Store<State>,
-    private promptUpdate: PromptUpdateService
+    private promptUpdate: PromptUpdateService,
+    @Inject(PLATFORM_ID) platformId: Object,
+    @Inject(DOCUMENT) private doc: Document
   ) {
+    this.isBrowser = isPlatformBrowser(platformId);
 
-    this.disableAutoZoomIos()
-    this.promptUpdate.promptServiceWorkerUpdate()
+    if (this.isBrowser) {
+      this.disableAutoZoomIos()
+      this.promptUpdate.promptServiceWorkerUpdate()
+    }
 
     this.loading = false
 
@@ -70,12 +76,12 @@ export class AppComponent {
   }
 
   setDarkTheme() {
-    this._renderer.addClass(document.body, 'dark-theme');
-    this._renderer.removeClass(document.body, 'light-theme');
+    this._renderer.addClass(this.doc.body, 'dark-theme');
+    this._renderer.removeClass(this.doc.body, 'light-theme');
   }
   setLightTheme() {
-    this._renderer.addClass(document.body, 'light-theme');
-    this._renderer.removeClass(document.body, 'dark-theme');
+    this._renderer.addClass(this.doc.body, 'light-theme');
+    this._renderer.removeClass(this.doc.body, 'dark-theme');
   }
 
   transformRouteString(route: string) {
@@ -88,12 +94,15 @@ export class AppComponent {
   }
 
   disableAutoZoomIos() {
-    let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
-    if (iOS && document?.head?.querySelector('meta[name="viewport"]')?.getAttribute('content'))
-      document?.head?.querySelector('meta[name="viewport"]')?.setAttribute('content', "width=device-width, initial-scale=1, maximum-scale=1");
-    else
-      document?.head?.querySelector('meta[name="viewport"]')?.setAttribute('content', "width=device-width, initial-scale=1");
+    const platform = (navigator as any).platform || '';
+    const iOS = /iPad|iPhone|iPod/.test(platform);
+    const viewport = this.doc.head?.querySelector('meta[name="viewport"]');
+    if (viewport) {
+      viewport.setAttribute('content', iOS
+        ? 'width=device-width, initial-scale=1, maximum-scale=1'
+        : 'width=device-width, initial-scale=1'
+      );
+    }
   }
-
 
 }
